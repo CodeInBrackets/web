@@ -6,10 +6,10 @@ FlowRouter.route('/',
   }
 });
 
-FlowRouter.route('/test',
+FlowRouter.route('/video-list',
 {
-  name: 'test',
+  name: 'video-list',
   action(){
-    BlazeLayout.render('main-view', {main: 'test'});
+    BlazeLayout.render('main-view', {main: 'Videos'});
   }
 });

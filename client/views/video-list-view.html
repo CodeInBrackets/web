@@ -1,0 +1,9 @@
+<template name="Videos">
+  {{> NewVideos}}
+</template>
+
+<template name="NewVideos">
+  <div class="new-video-container">
+    {{> quickForm collection="Videos" id="insertVideoForm" type="insert" class="new-video-form"}}
+  </div>
+</template>
