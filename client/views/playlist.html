@@ -1,0 +1,12 @@
+<template name="playlist">
+  <article class="playlist">
+    <h3>{{name}}</h3>
+    {{#each videos}}
+    <div class="video">{{name}}
+      <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/{{url}}" 
+      frameborder="0" allowfullscreen></iframe>
+    </div>
+    {{/each}}
+  </article>
+</template>

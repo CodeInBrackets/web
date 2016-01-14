@@ -1,3 +1,7 @@
 Meteor.subscribe('playlist');
 
-console.log(Meteor.settings.public.ga.account);
+Template.Videos.helpers({
+  videos: () => {
+    return Videos.find({});
+  }
+});

@@ -1,5 +1,10 @@
 <template name="Videos">
   {{> NewVideos}}
+  <section class="videos">
+    {{#each videos}}
+      {{> playlist}}
+    {{/each}}
+  </section>
 </template>
 
 <template name="NewVideos">
