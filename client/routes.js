@@ -15,3 +15,12 @@ FlowRouter.route('/video-list',
     BlazeLayout.render('main-view', {main: 'Videos'});
   }
 });
+
+FlowRouter.route('/playlist/:id',
+{
+  name: 'video-list',
+  action(){
+    GAnalytics.pageview();
+    BlazeLayout.render('main-view', {main: 'PlaylistDetails'});
+  }
+});

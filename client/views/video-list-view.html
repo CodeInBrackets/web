@@ -1,14 +1,12 @@
 <template name="Videos">
-  {{> NewVideos}}
+  {{> NewPlaylist}}
   <section class="videos">
-    {{#each videos}}
-      {{> playlist}}
-    {{/each}}
+    {{#if Template.subscriptionsReady}}
+      {{#each videos}}
+        {{> Playlists}}
+      {{/each}}
+    {{else}}
+      <p>Loading...</p>
+    {{/if}}
   </section>
-</template>
-
-<template name="NewVideos">
-  <div class="new-video-container">
-    {{> quickForm collection="Videos" id="insertVideoForm" type="insert" class="new-video-form"}}
-  </div>
 </template>
