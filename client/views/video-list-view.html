@@ -1,5 +1,9 @@
 <template name="Videos">
-  {{> NewPlaylist}}
+  {{#if $.Session.get 'NewPlaylist'}}
+    {{> NewPlaylist}}
+  {{else}}
+  <button class="new-playlist">New Playlist</button>
+  {{/if}}
   <section class="videos">
     {{#if Template.subscriptionsReady}}
       {{#each videos}}

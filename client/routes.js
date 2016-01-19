@@ -41,3 +41,12 @@ FlowRouter.route('/playlist/:id',
     BlazeLayout.render('main-view', {main: 'PlaylistDetails'});
   }
 });
+
+FlowRouter.route('/public-playlists',
+{
+  name: 'public-playlists',
+  action(){
+    GAnalytics.pageview();
+    BlazeLayout.render('main-view', {main: 'PublicPlaylist'});
+  }
+});

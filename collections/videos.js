@@ -3,6 +3,9 @@ Videos = new Mongo.Collection('playlist');
 Videos.allow({
   insert: function(userId, doc) {
     return !!userId;
+  },
+  update: function(userId, doc) {
+    return !!userId;
   }
 });
 
@@ -64,5 +67,18 @@ PlaylistSchema = new SimpleSchema({
     }
   }
 })
+
+Meteor.methods({
+  togglePlaylistPublish: function(id, currentState){
+    Videos.update(id, {
+      $set:{
+        isPublic: !currentState
+      }
+    })
+  },
+  deletePlaylist: function(id){
+    Videos.remove(id);
+  }
+});
 
 Videos.attachSchema(PlaylistSchema);

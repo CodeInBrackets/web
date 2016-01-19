@@ -1,13 +1,24 @@
 <template name="Playlists">
-  <article class="playlist">
+  <article class="playlist {{#if isPublic}}is-publish{{/if}}">
     <h3>{{name}}</h3>
-    {{#each videos}}
-      <div class="video">{{name}}
-        <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/{{url}}"
-        frameborder="0" allowfullscreen></iframe>
-      </div>
-    {{/each}}
-    <a href="/playlist/{{_id}}">View Details</a>
+    <i class="fa fa-pencil"></i>
+    <i class="fa fa-trash"></i>
+    {{#if editMode}}
+      {{> quickForm collection="Videos" id=updatePlaylistId type="update" doc=this autosave=true}}
+    {{else}}
+      {{#each videos}}
+        <div class="video">{{name}}
+          <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/{{url}}"
+          frameborder="0" allowfullscreen></iframe>
+        </div>
+      {{/each}}
+      <a href="/playlist/{{_id}}">View Details</a>
+      {{#if isPublic}}
+        <button class="btn-deny toggle-menu">Unpublish</button>
+      {{else}}
+        <button class="btn-primary toggle-menu">Publish</button>
+      {{/if}}
+    {{/if}}
   </article>
 </template>

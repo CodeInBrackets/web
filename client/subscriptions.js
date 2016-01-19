@@ -11,6 +11,12 @@ Template.Videos.helpers({
   }
 });
 
+Template.Videos.events({
+  'click .new-playlist': () => {
+    Session.set('NewPlaylist', true);
+  }
+});
+
 Template.PlaylistDetails.onCreated(function(){
   var self = this;
   self.autorun(function(){

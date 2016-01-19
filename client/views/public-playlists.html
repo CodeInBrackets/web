@@ -1,0 +1,16 @@
+<template name="PublicPlaylist">
+  <h1 class="page-title">My public playlists</h1>
+  {{#each playlist}}
+    {{> PlaylistItem}}
+  {{else}}
+    <h3>No current <a href="/video-list">public videos</a></h3>
+  {{/each}}
+</template>
+
+<template name="PlaylistItem">
+  {{#each videos}}
+      <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/{{url}}"
+      frameborder="0" allowfullscreen></iframe>
+  {{/each}}
+</template>
